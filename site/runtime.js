@@ -184,7 +184,8 @@
     var txt = (t.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60);
     var href = t.getAttribute('href') || '';
     if (href.indexOf('tel:') === 0) return track('avora_tel_click', { section: sectionOf(t) });
-    if (/^Valitse /.test(txt)) return track('avora_package_select', { package: txt.replace(/^Valitse /, ''), section: sectionOf(t) });
+    var al = t.getAttribute('aria-label') || '';
+    if (/^Pyydä esittely: /.test(al)) return track('avora_package_select', { package: al.replace(/^Pyydä esittely: /, ''), section: sectionOf(t) });
     if (t.closest('[aria-label="Esimerkkiala"]')) return track('avora_industry_select', { industry: txt });
     if (href === '#varaa') return track('avora_cta_click', { cta: txt, section: sectionOf(t) });
     if (href === '#paketit') return track('avora_cta_click', { cta: txt, section: sectionOf(t) });
