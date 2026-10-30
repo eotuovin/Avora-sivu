@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<title>Avora – tietosuoja ja ehdot</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;background:#08090A}
+*{box-sizing:border-box}
+a{color:#EDEDED}a:hover{color:#FFFFFF}
+a:focus-visible{outline:2px solid #8EA2FF;outline-offset:3px}
+.wrap{max-width:760px;margin:0 auto;padding:0 clamp(20px,4vw,40px)}
+.grad{background:linear-gradient(180deg,#FFFFFF 15%,#9A9DA4 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sec{padding:32px 0;border-top:1px solid rgba(255,255,255,.1)}
+.sec h2{margin:0 0 10px;font-weight:600;font-size:20px;letter-spacing:-.015em;color:#FFFFFF}
+.sec p,.sec li{color:#A1A5AD;margin:0 0 10px}
+.sec ul{margin:0;padding-left:20px}
+.btn{display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);color:#EDEDED;text-decoration:none;font-size:14px;font-weight:500;transition:transform .22s cubic-bezier(.16,1,.3,1),background-color .22s ease,border-color .22s ease}
+.btn:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.3);color:#FFFFFF;transform:translateY(-1px)}
+.btn:active{transform:scale(.98)}
+@media (prefers-reduced-motion: reduce){*{transition:none !important}}
+</style>
+</helmet>
+<div style="background: #08090A; color: #EDEDED; font-family: 'Onest', system-ui, sans-serif; font-size: 16px; line-height: 1.65; min-height: 100vh">
+<header style="border-bottom: 1px solid rgba(255,255,255,.06)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px,4vw,40px); display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px">
+<a href="Main.dc.html" style="display: inline-flex; align-items: center; gap: 10px; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 18px">
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20L12 4L20 20" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="12" cy="15.5" r="2.1" fill="#FFFFFF"></circle></svg>
+Avora</a>
+<a class="btn" href="Main.dc.html">Takaisin etusivulle</a>
+</div>
+</header>
+
+<main class="wrap" style="padding-top: clamp(64px,9vw,110px); padding-bottom: 120px">
+<p style="display: inline-block; margin: 0 0 20px; padding: 5px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,.1); font-size: 13px; color: #A1A5AD">Luonnos, tarkistetaan ennen julkaisua</p>
+<h1 class="grad" style="margin: 0; font-weight: 600; font-size: clamp(40px,6vw,64px); line-height: 1.04; letter-spacing: -.035em">Tietosuojaseloste</h1>
+<p style="margin: 16px 0 48px; color: #8A8F98; font-size: 14px">Päivitetty [PÄIVÄMÄÄRÄ]</p>
+
+<section class="sec">
+<h2>Rekisterinpitäjä</h2>
+<p>[YRITYKSEN VIRALLINEN NIMI], Y-tunnus [Y-TUNNUS], [OSOITE], Jyväskylä.</p>
+<p>Yhteyshenkilö tietosuoja-asioissa: [NIMI], [SÄHKÖPOSTI].</p>
+</section>
+<section class="sec">
+<h2>Mitä tietoja keräämme</h2>
+<ul>
+<li>Esittelypyynnön tiedot: nimi, yritys, sähköposti, puhelinnumero, kiinnostava paketti, toivottu yhteydenottotapa ja vapaaehtoinen viesti.</li>
+<li>Sivuston käyttötiedot: millä sivuilla käydään ja mistä sivulle tultiin, [KUVAUS NYKYISESTÄ ANALYTIIKASTA].</li>
+</ul>
+</section>
+<section class="sec">
+<h2>Mihin tietoja käytetään</h2>
+<p>Käytämme tietoja ottaaksemme sinuun yhteyttä esittelypyynnön takia, esittelyn valmisteluun ja mahdollisen asiakassuhteen hoitamiseen. Käyttötietojen avulla parannamme sivustoa ja seuraamme markkinoinnin toimivuutta.</p>
+<p>Peruste on suostumuksesi lomakkeella sekä oikeutettu etu yritysten välisessä yhteydenpidossa.</p>
+</section>
+<section class="sec">
+<h2>Kuinka kauan tietoja säilytetään</h2>
+<p>Esittelypyynnön tietoja säilytetään [SÄILYTYSAIKA], ellei asiakassuhdetta synny. Asiakkaiden tietoja säilytetään asiakassuhteen ajan ja lain edellyttämän ajan sen jälkeen.</p>
+</section>
+<section class="sec">
+<h2>Kuka tietoja käsittelee</h2>
+<p>Tietoja käsittelevät vain Avoran ja Muutto365:n työntekijät, joiden työ sitä vaatii. Tiedot säilytetään [SIJAINTI]. Tietoja ei myydä eikä luovuteta markkinointiin.</p>
+</section>
+<section class="sec">
+<h2>Sinun oikeutesi</h2>
+<p>Voit milloin tahansa pyytää nähdä sinusta tallennetut tiedot, korjata ne tai poistaa ne. Voit myös vastustaa tietojesi käsittelyä tai perua suostumuksesi. Laita viestiä osoitteeseen [SÄHKÖPOSTI].</p>
+<p>Jos koet, että tietojasi on käsitelty väärin, voit tehdä valituksen tietosuojavaltuutetulle (tietosuoja.fi).</p>
+</section>
+<section class="sec" style="border-bottom: 1px solid rgba(255,255,255,.1)">
+<h2>Evästeet</h2>
+<p>[KUVAUS KÄYTETYISTÄ EVÄSTEISTÄ JA MITEN NIISTÄ VOI KIELTÄYTYÄ]</p>
+</section>
+
+<h2 id="ehdot" class="grad" style="margin: 110px 0 0; font-weight: 600; font-size: clamp(40px,6vw,64px); line-height: 1.04; letter-spacing: -.035em">Palveluehdot</h2>
+<p style="margin: 16px 0 40px; color: #8A8F98; font-size: 14px">Päivitetty [PÄIVÄMÄÄRÄ]</p>
+<section class="sec" style="border-bottom: 1px solid rgba(255,255,255,.1)">
+<p>[PALVELUEHDOT: sopimuskausi, laskutus, irtisanominen, tietojen omistajuus ja siirto pois, palvelutaso ja tuki, vastuunrajaus.]</p>
+<p>Ehdot laaditaan ennen ensimmäistä asiakassopimusta.</p>
+</section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2350}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

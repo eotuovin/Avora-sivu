@@ -1,0 +1,41 @@
+# Avora website, test environment (Portainer git-backed stack `avora`).
+#
+# VPN-only like Luuri and movingfirm-admin: the web service binds to the
+# WireGuard address (AVORA_BIND, default 10.8.0.4:6780) and has no public
+# route. Going public later = an NPM proxy host to this container, done by
+# the operator, plus removing the noindex headers in server.py.
+#
+# Every variable the app reads is declared here: a variable set in Portainer
+# but not declared here never reaches the container.
+
+services:
+  web:
+    build: .
+    image: avora-sivu:${AVORA_IMAGE_TAG:-local}
+    restart: unless-stopped
+    ports:
+      - "${AVORA_BIND:-10.8.0.4:6780}:8080"
+    environment:
+      # Demo requests are delivered to Luuri (sales desk) as company + contact.
+      # LUURI_API_KEY is an api_keys row in Luuri with the "write" scope.
+      LUURI_URL: ${LUURI_URL:-http://10.8.0.4:6770}
+      LUURI_API_KEY: ${LUURI_API_KEY:-}
+      # Analytics continuity: avora_* events go to the existing ux-events tracker.
+      ANALYTICS_UX_EVENTS_URL: ${ANALYTICS_UX_EVENTS_URL:-https://api.muutto365.fi/api/ux-events}
+      AVORA_SITE_ENV: ${AVORA_SITE_ENV:-testing}
+    volumes:
+      - avora_data:/data
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128m
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8080/api/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  avora_data:
