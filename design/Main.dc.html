@@ -185,7 +185,7 @@ Avora</a>
 <div class="nav-r">
 <nav class="nav-links" aria-label="Päävalikko" style="display: flex; gap: 24px; align-items: center">
 <a class="nl" href="#ominaisuudet">Mitä se tekee</a>
-<a class="nl" href="#paketit">Hinnat</a>
+<a class="nl" href="#hinnasto" onClick="{{ goPrices }}">Hinnat</a>
 <a class="nl" href="#kysymykset">Kysymykset</a>
 <a class="nl" href="tel:[PUHELIN]" style="color: #EDEDED">Soita [PUHELIN]</a>
 </nav>
@@ -205,7 +205,7 @@ Pienyrittäjälle, Muutto365:n tekemä</p>
 <div class="e4" style="margin-top: 28px">
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
 <a class="btn btn-p" href="#varaa">Pyydä maksuton esittely</a>
-<a class="btn btn-g" href="#paketit">Katso hinnat</a>
+<a class="btn btn-g" href="#hinnasto" onClick="{{ goPrices }}">Katso hinnat</a>
 </div>
 <p style="margin: 12px 0 0; font-size: 14px; color: #8A8F98">30 min Google Meetissä. Ei sitoumuksia.</p>
 </div>
@@ -395,17 +395,17 @@ Pienyrittäjälle, Muutto365:n tekemä</p>
 <p class="rv lead" style="margin: 18px 0 0; max-width: 620px">Kuukausimaksu sisältää kaiken, mitä paketissa lukee, ja aloitusmaksussa on käyttöönotto. Voit vaihtaa isompaan pakettiin, kun yritys kasvaa.</p>
 </div>
 
-<div class="rv price-box" style="position: relative; margin-top: 40px">
+<div id="hinnasto" class="rv price-box" style="position: relative; margin-top: 40px; scroll-margin-top: 88px">
 <div aria-hidden="true" style="position: absolute; left: 35%; right: 20%; top: -80px; height: 320px; background: radial-gradient(50% 50% at 50% 50%, rgba(142,162,255,.10), rgba(142,162,255,0) 70%); pointer-events: none"></div>
 <div class="price-scroll" role="region" aria-label="Pakettien hintavertailu" tabindex="0">
 <table class="ptable">
-<caption style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Avoran paketit: Start, Kasvu ja Kokonaisuus</caption>
+<caption style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Avoran paketit: Start, Kasvu ja Tiimi</caption>
 <thead>
 <tr>
 <th scope="col" class="lbl hd" style="text-align: left"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Ominaisuus</span></th>
 <th scope="col" class="hd"><span class="badge-sp" aria-hidden="true"></span><span class="pname">Start</span><span class="ptag">Kun kaikki on vasta alussa</span></th>
 <th scope="col" class="hd hl hl-top"><span class="badge">Suosittelemme</span><span class="pname">Kasvu</span><span class="ptag">Kun asiakkaita pitää saada lisää</span></th>
-<th scope="col" class="hd"><span class="badge-sp" aria-hidden="true"></span><span class="pname">Kokonaisuus</span><span class="ptag">Kun porukkaa on enemmän</span></th>
+<th scope="col" class="hd"><span class="badge-sp" aria-hidden="true"></span><span class="pname">Tiimi</span><span class="ptag">Kun porukkaa on enemmän</span></th>
 </tr>
 </thead>
 <tbody>
@@ -461,7 +461,7 @@ Pienyrittäjälle, Muutto365:n tekemä</p>
 <th scope="row" class="lbl"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Pyydä esittely</span></th>
 <td><a class="btn btn-g" href="#varaa" onClick="{{ bookStart }}" aria-label="Pyydä esittely: Start">Pyydä esittely</a></td>
 <td class="hl"><a class="btn btn-p" href="#varaa" onClick="{{ bookKasvu }}" aria-label="Pyydä esittely: Kasvu">Pyydä esittely</a></td>
-<td><a class="btn btn-g" href="#varaa" onClick="{{ bookKoko }}" aria-label="Pyydä esittely: Kokonaisuus">Pyydä esittely</a></td>
+<td><a class="btn btn-g" href="#varaa" onClick="{{ bookKoko }}" aria-label="Pyydä esittely: Tiimi">Pyydä esittely</a></td>
 </tr>
 </tbody>
 </table>
@@ -724,7 +724,7 @@ class Component extends DCLogic {
           { n: 'Nettisivu', d: 'Selkeä sivu, jossa varaukset toimivat suoraan.' },
           { n: 'Soittolistat', d: 'Jos soitat asiakkaille itse, muistiinpanot ja sovitut asiat tallentuvat.' }
         ] },
-      { id: 'kokonaisuus', name: 'Kokonaisuus', short: '+ työvuorot ja kulut', tag: 'Kun porukkaa on enemmän',
+      { id: 'kokonaisuus', name: 'Tiimi', short: '+ työvuorot ja kulut', tag: 'Kun porukkaa on enemmän',
         who: 'Kun töissä on useampi tekijä ja haluat vuorot, varaukset ja luvut samaan paikkaan.',
         price: 'alk. [HINTA] € / kk', incl: 'Kaikki mitä Kasvussa, ja lisäksi:',
         items: [
@@ -785,7 +785,7 @@ class Component extends DCLogic {
         rows: [['Aloitusmaksu', '[X] €'], ['Käyttäjiä', '[X]'], ['Varaukset ja asiakkaat', 'Ajanvaraus netissä, asiakastiedot, viikon luvut'], ['Lisää asiakkaita', NO], ['Tiimi ja talous', NO], ['Käyttöönotto', SETUP], ['Apu', HELP]] },
       { id: 'kasvu', name: 'Kasvu', tag: 'Kun asiakkaita pitää saada lisää', hl: true,
         rows: [['Aloitusmaksu', '[X] €'], ['Käyttäjiä', '[X]'], ['Varaukset ja asiakkaat', 'Kaikki Startista'], ['Lisää asiakkaita', '+ mistä asiakkaat tulevat, nettisivu, soittolistat'], ['Tiimi ja talous', NO], ['Käyttöönotto', SETUP], ['Apu', HELP]] },
-      { id: 'kokonaisuus', name: 'Kokonaisuus', tag: 'Kun porukkaa on enemmän', hl: false,
+      { id: 'kokonaisuus', name: 'Tiimi', tag: 'Kun porukkaa on enemmän', hl: false,
         rows: [['Aloitusmaksu', '[X] €'], ['Käyttäjiä', '[X]'], ['Varaukset ja asiakkaat', 'Kaikki Startista'], ['Lisää asiakkaita', 'Kaikki Kasvusta'], ['Tiimi ja talous', '+ työvuorot, oma kalenteri jokaiselle tekijälle, kulut'], ['Käyttöönotto', 'Säädetään teidän tapaanne tehdä töitä'], ['Apu', HELP]] }
     ].map((c) => Object.assign({}, c, {
       price: '[HINTA] €',
@@ -817,8 +817,23 @@ class Component extends DCLogic {
       bookPkg: () => this.setState({ fpkg: s.pkg, err: '' }),
       pcols: pcols,
       hasPkg: ['start', 'kasvu', 'kokonaisuus'].indexOf(s.fpkg) >= 0,
-      pkgName: ({ start: 'Start', kasvu: 'Kasvu', kokonaisuus: 'Kokonaisuus' })[s.fpkg] || '',
+      pkgName: ({ start: 'Start', kasvu: 'Kasvu', kokonaisuus: 'Tiimi' })[s.fpkg] || '',
       clearPkg: () => this.setState({ fpkg: '' }),
+      // Land on the price table itself: centred when it fits under the header, else its top just below it.
+      goPrices: (e) => {
+        const el = document.getElementById('hinnasto');
+        if (!el) return;
+        if (e && e.preventDefault) e.preventDefault();
+        const header = 64;
+        // offsetTop ignores the reveal animation's transform, so the target does not depend on it.
+        let top = 0;
+        for (let n = el; n; n = n.offsetParent) top += n.offsetTop;
+        const height = el.offsetHeight;
+        const free = window.innerHeight - header;
+        const y = height + 48 <= free ? top - header - (free - height) / 2 : top - header - 24;
+        const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: Math.max(0, y), behavior: reduce ? 'auto' : 'smooth' });
+      },
       bookStart: () => this.setState({ fpkg: 'start', err: '' }),
       bookKasvu: () => this.setState({ fpkg: 'kasvu', err: '' }),
       bookKoko: () => this.setState({ fpkg: 'kokonaisuus', err: '' }),

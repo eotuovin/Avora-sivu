@@ -188,7 +188,7 @@
     if (/^Pyydä esittely: /.test(al)) return track('avora_package_select', { package: al.replace(/^Pyydä esittely: /, ''), section: sectionOf(t) });
     if (t.closest('[aria-label="Esimerkkiala"]')) return track('avora_industry_select', { industry: txt });
     if (href === '#varaa') return track('avora_cta_click', { cta: txt, section: sectionOf(t) });
-    if (href === '#paketit') return track('avora_cta_click', { cta: txt, section: sectionOf(t) });
+    if (href === '#paketit' || href === '#hinnasto') return track('avora_cta_click', { cta: txt, section: sectionOf(t) });
     if (t.localName === 'summary') {
       var d = t.parentElement; // the toggle has not happened yet: closed now = opening
       if (d && !d.open) track(/^Lisätiedot/.test(txt) ? 'avora_more_details_open' : 'avora_faq_open', { question: txt.replace(/\+$/, '').trim() });

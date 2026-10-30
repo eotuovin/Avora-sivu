@@ -44,7 +44,7 @@ ROUTES = {"/": "index.html", "/index.html": "index.html", "/tietosuoja": "tietos
 TYPES = {".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".txt": "text/plain; charset=utf-8"}
 
 CALL_TIMES = {"": "ei valittu", "aamu": "aamupäivä", "ip": "iltapäivä", "ilta": "ilta", "any": "ihan sama"}
-PACKAGES = {"": "ei valittu", "start": "Start", "kasvu": "Kasvu", "kokonaisuus": "Kokonaisuus", "eos": "ei osaa sanoa"}
+PACKAGES = {"": "ei valittu", "start": "Start", "kasvu": "Kasvu", "kokonaisuus": "Tiimi", "eos": "ei osaa sanoa"}
 INDUSTRIES = {"": "", "k": "kampaamo", "a": "autokorjaamo", "m": "muuttofirma"}
 EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
